@@ -1,0 +1,85 @@
+IMDB Movie Dataset – Business Rules (ETL Transformations)
+
+These rules govern data cleaning, transformation, aggregation, validation, and analytics.
+
+🧹 1. Data Cleaning Business Rules
+BR-01: Duplicate Movie Handling
+
+Rule: A movie is considered duplicate if title + release_year is repeated.
+
+Action:
+
+Keep the record with highest rating
+
+If ratings are equal, keep the one with highest gross
+
+BR-02: Missing Movie ID
+
+Rule: movie_id must be unique and non-null.
+
+Action:
+
+Auto-generate a surrogate key during ETL if missing.
+
+BR-03: Missing Rating
+
+Rule: Ratings must be between 0 and 10.
+
+Action:
+
+Replace NULL ratings with genre-wise average rating.
+
+If genre average is unavailable, use global average.
+
+BR-04: Missing Budget
+
+Rule: Budget cannot be negative or NULL for profitability analysis.
+
+Action:
+
+Replace NULL with median budget of the same genre.
+
+If genre median unavailable → use overall median.
+
+BR-05: Missing Gross Revenue
+
+Rule: Gross revenue cannot be negative.
+
+Action:
+
+Replace NULL gross values with 0 (movie assumed not released / flopped).
+
+BR-06: Missing Director / Actor
+
+Rule: Director and lead actor are mandatory descriptive attributes.
+
+Action:
+
+Replace NULL values with 'Unknown'.
+
+-------------------------------------------------------
+----------------------------------------------
+
+ETL Pipeline Flow:
+
+CSV files (dirty data)
+        ↓
+Python ETL (Pandas)
+  - Deduplication
+  - Null handling
+  - Business rules
+        ↓
+MySQL clean tables (DDL + constraints)
+        ↓
+SQL analytics + Matplotlib dashboards
+
+
+---------------------------------
+
+Dashboard Problem Statements(Matplotlib):
+
+1. Identify Top 10 highest grossing movies by year.
+2. Show rating distribution across genres.
+3. Find Top 5 directors by average movie rating.
+4. Analyze budget vs gross correlation.
+5. Identify most profitable genre.
