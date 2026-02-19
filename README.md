@@ -1,122 +1,73 @@
 # 🎬 IMDB Movie Dataset Analysis
 
-## 📌 Project Overview
+## About This Project
 
-This project focuses on analyzing an IMDB movies dataset to extract meaningful business insights related to movie performance, ratings, and profitability.
-The workflow follows a complete **ETL (Extract–Transform–Load) pipeline** using Python, MySQL, and data visualization.
+In this project, I worked on an IMDB movies dataset to understand what factors influence movie success.
+The main goal was to clean the raw data properly, apply business rules, and then generate useful insights using SQL and visualizations.
 
-The goal is to help stakeholders such as producers and analysts understand the factors influencing movie success.
-
----
-
-## 🎯 Objectives
-
-* Clean and preprocess raw movie data
-* Apply business rules for data quality
-* Store cleaned data in MySQL
-* Perform analytical queries
-* Build visual dashboards for insights
+I followed a complete ETL process — starting from raw CSV data, cleaning it using Python, loading it into MySQL, and finally creating dashboards using Matplotlib.
 
 ---
 
-##  Tools & Technologies Used
+## What I Tried to Achieve
 
-* **Python** (Pandas, NumPy, Matplotlib)
-* **MySQL**
-* **SQLAlchemy**
-* **Jupyter Notebook**
-* **Git & GitHub**
-
----
-
-## 🔄 ETL Pipeline
-
-```
-Raw CSV Data
-    ↓
-Python Data Cleaning (Pandas)
-    ↓
-Business Rule Validation
-    ↓
-MySQL Database Load
-    ↓
-SQL Analytics
-    ↓
-Matplotlib Dashboards
-```
+* Clean and prepare the raw movie dataset
+* Handle duplicates and missing values using proper business rules
+* Store the cleaned data in MySQL
+* Analyze movie performance using SQL
+* Build visual charts to show key insights
 
 ---
 
-## 🧹 Data Cleaning Business Rules
+## Tools I Used
 
-###  BR-01: Duplicate Movie Handling
-
-* Duplicate defined by: `title + release_year`
-* Kept record with:
-
-  * Highest rating
-  * If tie → highest gross
-
-###  BR-02: Missing Movie ID
-
-* Generated surrogate key to ensure uniqueness
-
-###  BR-03: Missing Rating
-
-* Filled using genre-wise average
-* Fallback: global average
-* Ensured rating range: 0–10
-
-###  BR-04: Missing Budget
-
-* Filled using genre median
-* Fallback: overall median
-
-###  BR-05: Missing Gross Revenue
-
-* Replaced NULL with **0**
-
-###  BR-06: Missing Director / Actor
-
-* Replaced NULL with **"Unknown"**
+* Python (Pandas, Matplotlib)
+* MySQL
+* SQLAlchemy
+* Jupyter Notebook
+* Git & GitHub
 
 ---
 
-## 📊 Dashboard Problem Statements
+##  Project Flow
 
-### 1. Top 10 Highest Grossing Movies by Year
-
-Identifies the highest revenue-generating movies per year.
-
-### 2️. Rating Distribution Across Genres
-
-Analyzes how movie ratings vary by genre.
-
-### 3️. Top 5 Directors by Average Rating
-
-Finds directors with the highest average movie ratings.
-
-### 4️. Budget vs Gross Correlation
-
-Examines the relationship between movie budget and revenue.
-
-### 5️. Most Profitable Genre
-
-Determines which genre generates the highest total profit.
+Raw CSV → Data Cleaning (Python) → Business Rules Applied → MySQL Load → SQL Analysis → Visual Dashboards
 
 ---
 
-## 🔍 Key Insights
+## Data Cleaning Steps I Performed
 
-* Duplicate records were successfully resolved using business rules
-* Missing values were handled using statistical imputation
+* Removed duplicate movies based on **title + release_year**
+* Generated unique **movie_id** values
+* Filled missing ratings using **genre-wise average**
+* Replaced missing budget values using **median approach**
+* Set missing gross revenue to **0**
+* Replaced missing director and actor names with **"Unknown"**
+* Created a new **profit** column (gross − budget)
+
+---
+
+##  Dashboard Questions I Solved
+
+1. Top 10 highest grossing movies by year
+2. Rating distribution across genres
+3. Top 5 directors by average movie rating
+4. Budget vs gross correlation analysis
+5. Most profitable genre
+
+---
+
+##  Key Observations
+
+* Duplicate records were successfully handled using sorting logic
+* Most missing values were resolved using statistical methods
 * Budget and gross showed **very weak correlation** in this dataset
-* Profitability varies significantly across genres
-* Genre-wise rating analysis highlights audience preferences
+* Profitability differs significantly across genres
+* Genre-wise rating analysis helps understand audience preferences
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 IMDB-Movie-Analysis/
@@ -126,19 +77,19 @@ IMDB-Movie-Analysis/
 │   └── imdb_movies_cleaned.csv
 │
 ├── IMDB-Movie-Analysis.ipynb
-├── README.md
+└── README.md
 ```
 
 ---
 
-## 🚀 How to Run the Project
+##  How to Run
 
-1. Clone the repository
-2. Install required libraries
-3. Run the Jupyter notebook step by step
-4. Ensure MySQL is running locally
+1. Download or clone this repository
+2. Install required Python libraries
+3. Run the notebook step by step
+4. Make sure MySQL is running locally
 5. Update database credentials if needed
 
 ---
 
-✨ *This project demonstrates end-to-end data analytics workflow from raw data to business insights.*
+ *This project helped me understand the complete data analytics workflow from raw data to meaningful insights.*
