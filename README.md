@@ -73,6 +73,9 @@ Raw CSV → Data Cleaning (Python) → Business Rules Applied → MySQL Load →
 IMDB-Movie-Analysis/
 │
 ├── Datasets/
+│   ├── imdb_movies.csv
+│   └── imdb_movies_cleaned.csv
+│
 ├── IMDB Movie Business Rules and dashboard_problems statements.txt
 ├── IMDB Movie Dataset Analysis.docx
 ├── IMDB-Movie-Analysis.ipynb
