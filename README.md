@@ -79,6 +79,7 @@ IMDB-Movie-Analysis/
 ├── IMDB Movie Business Rules and dashboard_problems statements.txt
 ├── IMDB Movie Dataset Analysis.docx
 ├── IMDB-Movie-Analysis.ipynb
+├── imdb_ddl.sql
 ├── README.md
 ```
 
